@@ -9,6 +9,7 @@
 # Introduction
 
 This is a [JHipster](https://www.jhipster.tech/) blueprint, that is meant to be used in a JHipster application.
+It adds for angular client the [ngx-admin v8.0.0 template](https://github.com/akveo/ngx-admin/tree/v8.0.0)
 
 # Prerequisites
 
@@ -16,12 +17,28 @@ As this is a [JHipster](https://www.jhipster.tech/) blueprint, we expect you hav
 
 - [Installing JHipster](https://www.jhipster.tech/installation/)
 
+Please attention that it is tested for `Jhipster v7.8.1`
+
 # Installation
 
 To install or update this blueprint:
 
 ```bash
 npm install -g generator-jhipster-ngxadmin
+```
+
+# Development
+
+To contribute and test locally the blueprint, After download this repo, execute on root folder:
+
+```bash
+npm link
+```
+
+Then create out of this repo an empty folder, in order to run the generation:
+
+```bash
+npm link generator-jhipster-ngxadmin
 ```
 
 # Usage
@@ -39,6 +56,12 @@ jhipster app --blueprints ngxadmin --help
 ```
 
 And looking for `(blueprint option: ngxadmin)` like
+
+However, you can run the blueprint with its `cli command`:
+
+```bash
+jhipster-ngxadmin
+```
 
 ## Pre-release
 

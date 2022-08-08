@@ -6,7 +6,7 @@
       "client": {
         "command": false,
         "priorities": ["initializing", "prompting", "configuring", "composing", "writing", "install", "end"],
-        "sbs": true,
+        "sbs": false,
         "written": true
       }
     },
