@@ -1,0 +1,18 @@
+{
+  "generator-jhipster": {
+    "baseName": "ngxadmin",
+    "cli": true,
+    "generators": {
+      "client": {
+        "command": false,
+        "priorities": ["initializing", "prompting", "configuring", "composing", "writing", "install", "end"],
+        "sbs": true,
+        "written": true
+      }
+    },
+    "jhipsterVersion": "7.8.1",
+    "prettierDefaultIndent": 2,
+    "projectName": "ngxadmin",
+    "subGenerators": ["client"]
+  }
+}
