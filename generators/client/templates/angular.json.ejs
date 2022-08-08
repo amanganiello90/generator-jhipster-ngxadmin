@@ -41,7 +41,6 @@
             "polyfills": "<%= MAIN_SRC_DIR %>polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
-            "<%= MAIN_SRC_DIR %>assets",
               "<%= MAIN_SRC_DIR %>content",
               "<%= MAIN_SRC_DIR %>favicon.ico",
               "<%= MAIN_SRC_DIR %>manifest.webapp",
@@ -49,7 +48,7 @@
               {
                 "glob": "**/*",
                 "input": "node_modules/leaflet/dist/images",
-                "output": "src/main/webapp/assets/img/markers"
+                "output": "src/main/webapp/content/assets/img/markers"
               }
             ],
             "styles": [

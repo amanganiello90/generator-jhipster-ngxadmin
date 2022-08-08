@@ -72,6 +72,13 @@ npm install -g jhipster/generator-jhipster-ngxadmin#main
 jhipster --blueprints ngxadmin --skip-jhipster-dependencies
 ```
 
+## To DO:
+
+- fix node (14.20.0) and npm versions (6.14.17) in pom.xml
+- check templates under **webapp/app**
+- define properties to skip tests and jhipster angular themes
+- the blueprint enables only oauth2 chooice
+
 [npm-image]: https://img.shields.io/npm/v/generator-jhipster-ngxadmin.svg
 [npm-url]: https://npmjs.org/package/generator-jhipster-ngxadmin
 [github-generator-image]: https://github.com/jhipster/generator-jhipster-ngxadmin/actions/workflows/generator.yml/badge.svg

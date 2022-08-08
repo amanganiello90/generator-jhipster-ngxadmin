@@ -41,6 +41,7 @@
     "@angular/platform-browser": "<%= dependabotPackageJson.dependencies['@angular/common'] %>",
     "@angular/platform-browser-dynamic": "<%= dependabotPackageJson.dependencies['@angular/common'] %>",
     "@angular/router": "<%= dependabotPackageJson.dependencies['@angular/common'] %>",
+    "@asymmetrik/ngx-leaflet": "3.0.1",
     "@fortawesome/angular-fontawesome": "<%= dependabotPackageJson.dependencies['@fortawesome/angular-fontawesome'] %>",
     "@fortawesome/fontawesome-svg-core": "<%= dependabotPackageJson.dependencies['@fortawesome/fontawesome-svg-core'] %>",
     "@fortawesome/free-solid-svg-icons": "<%= dependabotPackageJson.dependencies['@fortawesome/free-solid-svg-icons'] %>",
@@ -56,7 +57,7 @@
     "@popperjs/core": "2.11.5",
     "@swimlane/ngx-charts": "14.0.0",
     "angular2-chartjs": "0.4.1",
-    "bootstrap": "<%= dependabotPackageJson.dependencies.bootstrap %>",
+    "bootstrap": "4.3.1",
     "chart.js": "2.7.1",
     "ckeditor": "4.7.3",
     "classlist.js": "1.1.20150312",
@@ -82,7 +83,7 @@
     "pace-js": "1.0.2",
     "@popperjs/core": "<%= dependabotPackageJson.dependencies['@popperjs/core'] %>",
     "roboto-fontface": "0.8.0",
-    "rxjs": "<%= dependabotPackageJson.dependencies['rxjs'] %>",
+    "rxjs": "6.6.2",
     "rxjs-compat": "6.3.0",
     <%_ if (websocket === 'spring-websocket') { _%>
     "sockjs-client": "1.5.0",
@@ -130,11 +131,9 @@
     "@angular/compiler-cli": "<%= dependabotPackageJson.dependencies['@angular/common'] %>",
     "@angular/language-service": "<%= dependabotPackageJson.dependencies['@angular/common'] %>",
     "@angular-builders/custom-webpack": "<%= dependabotPackageJson.devDependencies['@angular-builders/custom-webpack'] %>",
-    "@angular-builders/jest": "<%= dependabotPackageJson.devDependencies['@angular-builders/jest'] %>",
     "@angular-devkit/build-angular": "<%= dependabotPackageJson.devDependencies['@angular/cli'] %>",
     "@fortawesome/fontawesome-free": "5.2.0",
     "@types/d3-color": "1.0.5",
-    "@types/jest": "<%= dependabotPackageJson.devDependencies['@types/jest'] %>",
     "@types/leaflet": "1.2.3",
     "@types/node": "<%= dependabotPackageJson.devDependencies['@types/node'] %>",
     "browser-sync": "<%= dependabotPackageJson.devDependencies['browser-sync'] %>",
@@ -149,11 +148,6 @@
     "<%= module.name %>": "<%= module.version %>",
     <%_ });
 } _%>
-    "jest": "<%= dependabotPackageJson.devDependencies['jest'] %>",
-    "jest-preset-angular": "<%= dependabotPackageJson.devDependencies['jest-preset-angular'] %>",
-    "jest-date-mock": "<%= dependabotPackageJson.devDependencies['jest-date-mock'] %>",
-    "jest-junit": "<%= dependabotPackageJson.devDependencies['jest-junit'] %>",
-    "jest-sonar-reporter": "<%= dependabotPackageJson.devDependencies['jest-sonar-reporter'] %>",
     "prettier": "<%= dependabotPackageJson.devDependencies['prettier'] %>",
     "prettier-plugin-packagejson": "<%= dependabotPackageJson.devDependencies['prettier-plugin-packagejson'] %>",
 <%_ if (enableI18nRTL) { _%>
@@ -162,7 +156,6 @@
     "rimraf": "<%= dependabotPackageJson.devDependencies['rimraf'] %>",
     "stylelint": "7.13.0",
     "swagger-ui-dist": "<%= dependabotPackageJson.devDependencies['swagger-ui-dist'] %>",
-    "ts-jest": "<%= dependabotPackageJson.devDependencies['ts-jest'] %>",
     "ts-node": "3.2.2",
     "tslint": "6.1.0",
     "tslint-language-service": "0.9.9",
@@ -207,7 +200,6 @@
     "postinstall": "<%= clientPackageManager %> run e2e:update-webdriver",
     "e2e:update-webdriver": "webdriver-manager update --gecko false",
     <%_ } _%>
-    "jest": "jest --coverage --logHeapUsage --maxWorkers=2 --config jest.conf.js",
     "start": "ng serve<% if (!microfrontend) { %> --hmr<% } %>",
     "start-tls": "<%= clientPackageManager %> run webapp:dev-ssl",
     <%_ if (skipServer) { _%>
@@ -228,9 +220,5 @@
     "webapp:dev-ssl": "ng serve --ssl",
     "webapp:prod": "<%= clientPackageManager %> run clean-www && <%= clientPackageManager %> run webapp:build:prod",
     "webapp:test": "<%= clientPackageManager %> run test --"
-  },
-  "jestSonar": {
-    "reportPath": "<%= BUILD_DIR %>test-results/jest",
-    "reportFile": "TESTS-results-sonar.xml"
   }
 }

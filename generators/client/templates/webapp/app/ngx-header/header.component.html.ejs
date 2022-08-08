@@ -1,0 +1,93 @@
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <a class="logo" href="#" (click)="navigateHome()">
+      <span class="logo-img"></span>
+      <span class="navbar-title" jhiTranslate="global.title">Store</span>
+      <span class="navbar-version">-{{ version }}</span>
+    </a>
+ </div>
+ 
+</div>
+<div class="header-container"> 
+  <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
+    <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
+  </nb-select>
+</div> 
+
+<div class="header-container">
+  <a (click)="navigateHome()" href="#" nbButton>
+    <nb-icon icon="home-outline"></nb-icon>
+    <span jhiTranslate="global.menu.home">Home</span>
+  </a>
+</div>
+
+<div class="header-container" *ngIf="account !== null" > 
+
+  <nb-select [formControl]="entitiesSelectControl" status="primary"  (selectedChange)="goToEntityPages($event)">
+    <nb-option value="" hidden> 
+          <nb-icon  icon="alert-circle-outline"></nb-icon>
+      <span jhiTranslate="global.menu.entities.main">Entities</span>
+    </nb-option>
+    <nb-option value="foo">
+      <span jhiTranslate="global.menu.entities.mymicroFoo">Foo</span>
+    </nb-option>
+     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+  </nb-select>
+</div> 
+
+<div class="header-container" *jhiHasAnyAuthority="'ROLE_ADMIN'"> 
+<nb-select [formControl]="adminSelectControl" status="primary"  (selectedChange)="goToAdminPages($event)">
+  <nb-option value="" hidden> 
+        <nb-icon  icon="alert-circle-outline"></nb-icon>
+      <span jhiTranslate="global.menu.admin.main">Administration</span>
+  </nb-option>
+  <nb-option value="admin/gateway">
+    <span jhiTranslate="global.menu.admin.gateway">Gateway</span>
+  </nb-option>
+  <nb-option value="admin/metrics">
+    <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
+  </nb-option>
+  <nb-option value="admin/health">
+    <span jhiTranslate="global.menu.admin.health">Health</span>
+  </nb-option>
+  <nb-option value="admin/configuration">
+    <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
+  </nb-option>
+  <nb-option value="admin/logs">
+    <span jhiTranslate="global.menu.admin.logs">Logs</span>
+  </nb-option>
+  <nb-option value="admin/docs">
+    <span jhiTranslate="global.menu.admin.apidocs">API</span>
+  </nb-option>
+    <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
+</nb-select>
+</div> 
+
+<div class="header-container" *ngIf="languages && languages.length > 1"> 
+  <nb-select [jhiActiveMenu]="language" [formControl]="languageSelectControl" status="primary"  (selectedChange)="changeLanguage($event)">
+    <nb-option value="" hidden> 
+          <nb-icon  icon="alert-circle-outline"></nb-icon>
+          <span jhiTranslate="global.menu.language">Language</span>
+    </nb-option>
+    <nb-option  *ngFor="let language of languages" [value]="language"> {{ language | findLanguageFromKey }}</nb-option>
+  </nb-select>
+  </div> 
+
+<div class="header-container"> 
+  <nb-select [formControl]="accountSelectControl" status="primary"  (selectedChange)="performLoginOrLogout($event)">
+    <nb-option value="" hidden> 
+          <nb-icon  icon="alert-circle-outline"></nb-icon>
+        <span jhiTranslate="global.menu.account.main">Account</span>
+    </nb-option>
+    <nb-option *ngIf="account !== null" value="logout">
+      <span jhiTranslate="global.menu.account.logout">Sign out</span>
+    </nb-option>
+    <nb-option *ngIf="!account" value="login">
+      <span jhiTranslate="global.menu.account.login">Sign in</span>
+    </nb-option>
+  </nb-select>
+  </div> 
+

@@ -15,7 +15,7 @@ import {
   END_PRIORITY,
 } from 'generator-jhipster/esm/priorities';
 
-import { TEMPLATE_FILES_LIST } from './files.mjs';
+import { writeFiles } from './files.mjs';
 
 export default class extends ClientGenerator {
   constructor(args, opts, features) {
@@ -80,14 +80,7 @@ export default class extends ClientGenerator {
   get [WRITING_PRIORITY]() {
     return {
       ...super._writing(),
-      async addNGXTemplateTask() {
-        await this.writeFiles({
-          sections: {
-            files: [{ templates: TEMPLATE_FILES_LIST }],
-          },
-          context: this,
-        });
-      },
+      ...writeFiles(this)
     };
   }
 
