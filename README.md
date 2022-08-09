@@ -9,7 +9,13 @@
 # Introduction
 
 This is a [JHipster](https://www.jhipster.tech/) blueprint, that is meant to be used in a JHipster application.
-It adds for angular client the [ngx-admin v8.0.0 template](https://github.com/akveo/ngx-admin/tree/v8.0.0)
+It adds an angular client with the [ngx-admin v8.0.0 template](https://github.com/akveo/ngx-admin/tree/v8.0.0), inheriting standard prompt but with the following options customization:
+
+- Only Monolith or gateway chooices
+- Only Security oauth2
+- Without client test frameworks
+- Without client options (angular ngx template is applied in any case)
+- Applied alwayis admin UI
 
 # Prerequisites
 
@@ -74,14 +80,13 @@ jhipster --blueprints ngxadmin --skip-jhipster-dependencies
 
 ## To DO:
 
-- fix node (14.20.0) and npm versions (6.14.17) in pom.xml
 - check templates under **webapp/app**
-- define properties to skip tests and jhipster angular themes
-- the blueprint enables only oauth2 chooice
+- check regeneration skiClient
+- Manage i18n and entity on header.component
 
 [npm-image]: https://img.shields.io/npm/v/generator-jhipster-ngxadmin.svg
 [npm-url]: https://npmjs.org/package/generator-jhipster-ngxadmin
-[github-generator-image]: https://github.com/jhipster/generator-jhipster-ngxadmin/actions/workflows/generator.yml/badge.svg
-[github-generator-url]: https://github.com/jhipster/generator-jhipster-ngxadmin/actions/workflows/generator.yml
-[github-integration-image]: https://github.com/jhipster/generator-jhipster-ngxadmin/actions/workflows/integration.yml/badge.svg
-[github-integration-url]: https://github.com/jhipster/generator-jhipster-ngxadmin/actions/workflows/integration.yml
+[github-generator-image]: https://github.com/amanganiello90/generator-jhipster-ngxadmin/actions/workflows/generator.yml/badge.svg
+[github-generator-url]: https://github.com/amanganiello90/generator-jhipster-ngxadmin/actions/workflows/generator.yml
+[github-integration-image]: https://github.com/amanganiello90/generator-jhipster-ngxadmin/actions/workflows/integration.yml/badge.svg
+[github-integration-url]: https://github.com/amanganiello90/generator-jhipster-ngxadmin/actions/workflows/integration.yml

@@ -1,5 +1,5 @@
 import chalk from 'chalk';
-import ClientGenerator from 'generator-jhipster/esm/generators/client';
+import ServerGenerator from 'generator-jhipster/esm/generators/server';
 import {
   PRIORITY_PREFIX,
   INITIALIZING_PRIORITY,
@@ -15,39 +15,47 @@ import {
   END_PRIORITY,
 } from 'generator-jhipster/esm/priorities';
 
-import { writeFilesNGX } from './files.mjs';
+import {askForServerSideOpts} from './prompts.mjs';
 
-export default class extends ClientGenerator {
+
+export default class extends ServerGenerator {
   constructor(args, opts, features) {
     super(args, opts, { taskPrefix: PRIORITY_PREFIX, ...features });
 
     if (this.options.help) return;
 
     if (!this.options.jhipsterContext) {
-      throw new Error(`This is a JHipster blueprint and should be used only like ${chalk.yellow('jhipster --blueprints tit')}`);
+      throw new Error(`This is a JHipster blueprint and should be used only like ${chalk.yellow('jhipster --blueprints ngxadmin')}`);
     }
   }
 
   get [INITIALIZING_PRIORITY]() {
     return {
-      async initializingTemplateTask() {},
       ...super._initializing(),
+      setupNodeVersion(){
+        // for compatibility ngx-admin template 8.0.0
+        this.NODE_VERSION = '14.20.0';
+        this.NPM_VERSION = '6.14.17';
+      },
+      setStandardNGXProps(){
+        if(this.existingProject) {
+          if(this.jhipsterConfig.applicationType==='microservice') {
+            throw new Error(`This blueprint is not compatible with microservice projects!`);
+
+          }
+          this.jhipsterConfig.authenticationType='oauth2';
+          this.jhipsterConfig.skipClient=false;
+          this.jhipsterConfig.clientFramework='angularX';
+
+        }
+      }
     };
   }
 
   get [PROMPTING_PRIORITY]() {
     return {
       ...super._prompting(),
-      askForClient() {
-        this.clientFramework = this.jhipsterConfig.clientFramework ='angularX'
-      },
-      askForAdminUi() {
-        this.withAdminUi = this.jhipsterConfig.withAdminUi = true;
-      },
-      askForClientTheme(){
-        this.clientTheme = this.jhipsterConfig.clientTheme = 'none';
-
-      },
+      askForServerSideOpts
     };
   }
 
@@ -88,8 +96,8 @@ export default class extends ClientGenerator {
 
   get [WRITING_PRIORITY]() {
     return {
+      async writingTemplateTask() {},
       ...super._writing(),
-      ...writeFilesNGX(this)
     };
   }
 

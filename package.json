@@ -1,14 +1,19 @@
 {
   "name": "generator-jhipster-ngxadmin",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.0-beta.0",
   "description": "ngxadmin",
   "keywords": [
     "yeoman-generator",
     "jhipster-blueprint",
-    "jhipster-7"
+    "jhipster-7",
+    "ngx-admin"
   ],
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Angelo Manganiello",
+    "email": "angelo.mang@libero.it",
+    "url": "https://github.com/amanganiello90"
+  },
   "type": "module",
   "imports": {
     "#test-utils": "./test/utils.mjs"

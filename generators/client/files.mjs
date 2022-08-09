@@ -36,7 +36,7 @@
   
 }
 
-export function writeFiles(ctx) {
+export function writeFilesNGX(ctx) {
   return {
    copyEntireContentAssetsFolder() {
       ctx.fs.copy(
