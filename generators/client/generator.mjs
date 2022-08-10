@@ -39,13 +39,14 @@ export default class extends ClientGenerator {
     return {
       ...super._prompting(),
       askForClient() {
-        this.clientFramework = this.jhipsterConfig.clientFramework ='angularX'
+        this.skipClient = this.jhipsterConfig.skipClient;
+        this.clientFramework = this.jhipsterConfig.clientFramework;
       },
       askForAdminUi() {
-        this.withAdminUi = this.jhipsterConfig.withAdminUi = true;
+        this.withAdminUi = this.jhipsterConfig.withAdminUi;
       },
       askForClientTheme(){
-        this.clientTheme = this.jhipsterConfig.clientTheme = 'none';
+        this.clientTheme = this.jhipsterConfig.clientTheme;
 
       },
     };

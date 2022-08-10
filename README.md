@@ -81,7 +81,6 @@ jhipster --blueprints ngxadmin --skip-jhipster-dependencies
 ## To DO:
 
 - check templates under **webapp/app**
-- check regeneration skiClient
 - Manage i18n and entity on header.component
 
 [npm-image]: https://img.shields.io/npm/v/generator-jhipster-ngxadmin.svg

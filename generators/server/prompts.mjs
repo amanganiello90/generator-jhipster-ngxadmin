@@ -126,7 +126,7 @@ export function askForServerSideOpts() {
       store: true,
     },
     {
-      when: () => applicationType === 'gateway' || applicationType === 'microservice',
+      when: () => applicationType === 'gateway',
       type: 'list',
       name: SERVICE_DISCOVERY_TYPE,
       message: 'Which service discovery server do you want to use?',

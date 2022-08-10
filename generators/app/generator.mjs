@@ -72,8 +72,15 @@ export default class extends AppGenerator {
 
   get [CONFIGURING_PRIORITY]() {
     return {
-      async configuringTemplateTask() {},
       ...super._configuring(),
+      setStandardNGXProps(){
+          this.jhipsterConfig.authenticationType='oauth2';
+          this.jhipsterConfig.skipClient=false;
+          this.jhipsterConfig.withAdminUi = true;
+          this.jhipsterConfig.clientFramework='angularX';
+          this.jhipsterConfig.clientTheme = 'none';
+
+        }
     };
   }
 

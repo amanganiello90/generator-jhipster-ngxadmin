@@ -37,15 +37,9 @@ export default class extends ServerGenerator {
         this.NODE_VERSION = '14.20.0';
         this.NPM_VERSION = '6.14.17';
       },
-      setStandardNGXProps(){
-        if(this.existingProject) {
-          if(this.jhipsterConfig.applicationType==='microservice') {
-            throw new Error(`This blueprint is not compatible with microservice projects!`);
-
-          }
-          this.jhipsterConfig.authenticationType='oauth2';
-          this.jhipsterConfig.skipClient=false;
-          this.jhipsterConfig.clientFramework='angularX';
+      checkInvalidNGXProps(){
+        if(this.existingProject && this.jhipsterConfig.applicationType === 'microservice') {
+          throw new Error(`This blueprint is not compatible with microservice projects!`);
 
         }
       }
