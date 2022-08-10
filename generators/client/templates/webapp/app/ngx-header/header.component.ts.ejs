@@ -169,8 +169,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
    this.router.navigate([entityNamePath]);
   }
   goToAdminPages(adminPath: string) {
-    this.adminSelectControl.reset('');
+    if(adminPath==='h2-console' || adminPath.indexOf('http://')) {
+      window.open(adminPath);
+    }
+    else {
     this.router.navigate([adminPath]);
+    }
+    this.adminSelectControl.reset('');
   }
 
   performLoginOrLogout(loginOrLogout: string) {
