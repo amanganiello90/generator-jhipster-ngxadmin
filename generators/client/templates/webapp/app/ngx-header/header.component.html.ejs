@@ -84,7 +84,7 @@ N.B. JHipster 7.8.1 angular navbar template modified and merged
     <span <%= jhiPrefix %>Translate="global.menu.admin.apidocs">API</span>
   </nb-option>
   <%_ if (devDatabaseTypeH2Any || devDatabaseTypeCouchbase) { _%>  
-    <nb-option *ngIf="!inProduction" value="<% if (devDatabaseTypeCouchbase) { %>http://localhost:8091/<% } else if (reactive) { %> http://localhost:8092/ <% } else { %>./h2-console/<% } %>">
+    <nb-option *ngIf="!inProduction" value="<% if (devDatabaseTypeCouchbase) { %>http://localhost:8091/<% } else if (reactive) { %> http://localhost:8092/ <% } else { %>h2-console<% } %>">
       <span <%= jhiPrefix %>Translate="global.menu.admin.database">Database</span>
     </nb-option>
   <%_ } _%>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SubGenerator server of ngxadmin JHipster blueprint run should succeed 1`] = `
+exports[`SubGenerator server of ngxadmin JHipster blueprint run should match generated files snapshot 1`] = `
 Object {
   ".devcontainer/Dockerfile": Object {
     "stateCleared": "modified",

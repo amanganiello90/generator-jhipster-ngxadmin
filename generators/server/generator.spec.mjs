@@ -1,5 +1,6 @@
 import expect from 'expect';
 
+import assert from 'yeoman-assert';
 import { helpers, lookups } from '#test-utils';
 
 describe('SubGenerator server of ngxadmin JHipster blueprint', () => {
@@ -17,8 +18,12 @@ describe('SubGenerator server of ngxadmin JHipster blueprint', () => {
         .run();
     });
 
-    it('should succeed', () => {
+    it('should match generated files snapshot', () => {
       expect(result.getStateSnapshot()).toMatchSnapshot();
+    });
+
+    it('server is generated with node 14.20.0 version modified in pom.xml', () => {
+      assert.fileContent('pom.xml', '<node.version>v14.20.0</node.version>');
     });
   });
 });
