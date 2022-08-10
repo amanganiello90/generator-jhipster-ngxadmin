@@ -80,8 +80,7 @@ jhipster --blueprints ngxadmin --skip-jhipster-dependencies
 
 ## To DO:
 
-- check templates under **webapp/app**
-- Manage i18n and entity on header.component
+- Check and manage i18n and entity on header.component
 
 [npm-image]: https://img.shields.io/npm/v/generator-jhipster-ngxadmin.svg
 [npm-url]: https://npmjs.org/package/generator-jhipster-ngxadmin

@@ -3,9 +3,6 @@ import { NbThemeService } from '@nebular/theme';
 import { takeWhile } from 'rxjs/operators' ;
 import { SolarData } from '../../@core/data/solar';
 
-// Aggiunta
-import { AccountService } from 'app/core/auth/account.service';
-import { Account } from 'app/core/auth/account.model';
 
 interface CardSettings {
   title: string;
@@ -20,8 +17,6 @@ interface CardSettings {
 })
 export class DashboardComponent implements OnInit,OnDestroy {
 
-  // aggiunta
-  account: Account | null = null;
 
   private alive = true;
 
@@ -85,8 +80,7 @@ export class DashboardComponent implements OnInit,OnDestroy {
     dark: this.commonStatusCardsSet,
   };
 
-  constructor(private accountService: AccountService,
-    private themeService: NbThemeService,
+  constructor(private themeService: NbThemeService,
               private solarService: SolarData) {
     this.themeService.getJsTheme()
       .pipe(takeWhile(() => this.alive))
@@ -101,7 +95,6 @@ export class DashboardComponent implements OnInit,OnDestroy {
       });
   }
   ngOnInit(): void {
-    //this.accountService.identity().subscribe(account => (this.account = account));
   }
 
   ngOnDestroy() {
