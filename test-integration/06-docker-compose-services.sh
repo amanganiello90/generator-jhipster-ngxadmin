@@ -13,10 +13,24 @@ cd test-integration/samples/$1
 echo "***${GREEN}changed directory in : test-integration/samples/"$1
 
 #-------------------------------------------------------------------------------
-# Run docker keycloak for oauth2 e2e tests
+# Run docker keycloak for oauth2 
 #-------------------------------------------------------------------------------
 
 echo "***${GREEN}run docker compose keycloak"
 docker-compose -f src/main/docker/keycloak.yml up -d
 
 docker ps -a
+
+#-------------------------------------------------------------------------------
+# Run docker jhipster registry for gateway 
+#-------------------------------------------------------------------------------
+
+if [ -z $(find src -type f -name "*jhipster-registry.yml" ) ]; then
+
+else
+      echo "***${GREEN}run docker compose jhipster registry"
+      docker-compose -f src/main/docker/jhipster-registry.yml up -d
+      docker ps -a
+fi
+
+

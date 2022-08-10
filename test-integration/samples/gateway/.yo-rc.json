@@ -1,18 +1,56 @@
 {
   "generator-jhipster": {
-    "baseName": "ngxadmin",
-    "cli": true,
-    "generators": {
-      "client": {
-        "command": false,
-        "priorities": ["initializing", "prompting", "configuring", "composing", "writing", "install", "end"],
-        "sbs": false,
-        "written": true
+    "applicationType": "gateway",
+    "authenticationType": "oauth2",
+    "baseName": "gateway",
+    "blueprints": [
+      {
+        "name": "generator-jhipster-ngxadmin",
+        "version": "1.0.0-beta.0"
       }
-    },
+    ],
+    "buildTool": "maven",
+    "cacheProvider": "no",
+    "clientFramework": "angularX",
+    "clientPackageManager": "npm",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1660151979984,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "devServerPort": 4200,
+    "dtoSuffix": "DTO",
+    "enableGradleEnterprise": false,
+    "enableHibernateCache": false,
+    "enableSwaggerCodegen": false,
+    "enableTranslation": false,
+    "entitySuffix": "",
+    "jhiPrefix": "jhi",
     "jhipsterVersion": "7.8.1",
-    "prettierDefaultIndent": 2,
-    "projectName": "ngxadmin",
-    "subGenerators": ["client"]
+    "jwtSecretKey": "OWNjMmQwMjc5YjYwZjU3NjMxMDM1ZWUwNGI1ODM4Yzg5NTI5MjBhM2U4ODhkNThjZTYzMDNmNzBjNmRiOWJkYzMwODBhYmRjZGQ4YjA0OTMxMTIxZWIzZmI1ODliNTUxNmMwNTE2MzFmNjk4NzcyODA5NWJhMTY1NzI0ZmM2NGU=",
+    "languages": ["en", "fr"],
+    "messageBroker": false,
+    "nativeLanguage": "it",
+    "otherModules": [
+      {
+        "name": "generator-jhipster-ngxadmin",
+        "version": "1.0.0-beta.0"
+      }
+    ],
+    "packageName": "com.mycompany.myapp",
+    "pages": [],
+    "prodDatabaseType": "postgresql",
+    "reactive": true,
+    "searchEngine": false,
+    "serverPort": "8081",
+    "serverSideOptions": [],
+    "serviceDiscoveryType": "eureka",
+    "skipCheckLengthOfIdentifier": false,
+    "skipClient": false,
+    "skipFakeData": false,
+    "skipUserManagement": true,
+    "testFrameworks": [],
+    "websocket": false,
+    "withAdminUi": true
   }
 }

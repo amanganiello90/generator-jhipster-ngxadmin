@@ -1,0 +1,18 @@
+{
+  "changelogDate": "20220810171505",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "value",
+      "fieldType": "Integer"
+    }
+  ],
+  "name": "Foo",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

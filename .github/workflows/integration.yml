@@ -1,0 +1,47 @@
+name: Test Integration NGX
+on: [push, pull_request]
+jobs:
+    applications:
+        name: ${{ matrix.app-type }}
+        runs-on: ${{ matrix.os }}
+        if: "!contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]')"
+        timeout-minutes: 40
+        strategy:
+            fail-fast: false
+            matrix:
+                node_version: [14.20.0]
+                os: [ubuntu-latest]
+                app-type:
+                    - monolith-entity
+                    - gateway
+                    - monolith-jdl
+                include:
+                    - app-type: monolith-entity
+                      app-folder: monolith-entity
+                      entity: no
+                    - app-type: gateway
+                      app-folder: gateway
+                      entity: no
+                    - app-type: monolith-jdl
+                      app-folder: monolith-jdl
+                      entity: import-jdl
+        env:
+            NHI_APP_FOLDER: ${{ matrix.app-folder }}
+            NHI_ENTITY: ${{ matrix.entity }}
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node-version }}
+            - name: GIT HISTORY
+              run: git --no-pager log -n 10 --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue) <%an>%Creset' --abbrev-commit
+            - name: PREPARE jhipster env
+              run: sudo sh test-integration/00-install-all-jhipster.sh
+            - name: 'GENERATE app'
+              run: sudo sh test-integration/01-generate-app-sample.sh $NHI_APP_FOLDER $NHI_ENTITY
+            - name: 'INSTALL NPM dependencies and MAVEN COMPILE'
+              run: sudo sh test-integration/02-install-compile-app-sample.sh $NHI_APP_FOLDER
+            - name: 'RUN DOCKER SERVICES for oauth2 and registry'
+              run: sudo sh test-integration/06-docker-compose-services.sh $NHI_APP_FOLDER
+            - name: 'START APP'
+              run: sudo sh test-integration/07-run-generated-app-sample.sh $NHI_APP_FOLDER

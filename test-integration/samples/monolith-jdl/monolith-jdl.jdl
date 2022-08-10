@@ -14,7 +14,7 @@ application {
     serverPort 8081,
     authenticationType oauth2,
     prodDatabaseType postgresql,
-    buildTool gradle,
+    buildTool maven,
     searchEngine elasticsearch,
     testFrameworks [protractor],
     clientFramework angularX
@@ -43,6 +43,7 @@ entity Points {
   alcohol Integer
   notes String maxlength(140)
 }
+
 entity Preferences {
   weeklyGoal Integer
   weightUnits Units required
@@ -53,13 +54,19 @@ enum Units {
   LB
 }
 
+entity Athlete {
+  name String
+  isMale Boolean 
+  age Integer
+}
+
 relationship OneToOne {
-  Preferences{user(login)} to User
+  Preferences{athlete(name)} to Athlete
 }
 relationship ManyToOne {
-  BloodPressure{user(login)} to User
-  Weight{user(login)} to User
-  Points{user(login)} to User
+  BloodPressure{athlete(name)} to Athlete
+  Weight{athlete(name)} to Athlete
+  Points{athlete(name)} to Athlete
 }
 
 paginate BloodPressure, Weight with infinite-scroll

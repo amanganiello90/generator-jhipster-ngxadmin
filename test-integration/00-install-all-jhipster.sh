@@ -22,5 +22,6 @@ npm install -g yo
 #-------------------------------------------------------------------------------
 
 echo "*** generator-jhipster-ngxadmin: use current branch version"
+npm install
 npm install -g
 # sudo npm link
