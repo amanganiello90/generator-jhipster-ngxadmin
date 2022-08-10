@@ -1,3 +1,20 @@
+<%#
+Copyright 2013-2022 the original author or authors from the JHipster project.
+This file is part of the JHipster project, see https://www.jhipster.tech/
+for more information.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+     https://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+N.B. JHipster 7.8.1 angular navbar template modified and merged
+
+-%>
 <div class="header-container">
   <div class="logo-container">
     <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
@@ -5,7 +22,7 @@
     </a>
     <a class="logo" href="#" (click)="navigateHome()">
       <span class="logo-img"></span>
-      <span class="navbar-title" jhiTranslate="global.title">Store</span>
+      <span <%= jhiPrefix %>Translate="global.title" class="navbar-title"><%= capitalizedBaseName %></span>
       <span class="navbar-version">-{{ version }}</span>
     </a>
  </div>
@@ -20,7 +37,7 @@
 <div class="header-container">
   <a (click)="navigateHome()" href="#" nbButton>
     <nb-icon icon="home-outline"></nb-icon>
-    <span jhiTranslate="global.menu.home">Home</span>
+    <span <%= jhiPrefix %>Translate="global.menu.home">Home</span>
   </a>
 </div>
 
@@ -28,65 +45,73 @@
 
   <nb-select [formControl]="entitiesSelectControl" status="primary"  (selectedChange)="goToEntityPages($event)">
     <nb-option value="" hidden> 
-          <nb-icon  icon="alert-circle-outline"></nb-icon>
-      <span jhiTranslate="global.menu.entities.main">Entities</span>
+          <span <%= jhiPrefix %>Translate="global.menu.entities.main">Entities</span>
     </nb-option>
-    <nb-option value="foo">
-      <span jhiTranslate="global.menu.entities.mymicroFoo">Foo</span>
-    </nb-option>
-     <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
+     <!-- jhipster-needle-add-entity-to-header-menu - JHipster will add entities to the header menu here -->
   </nb-select>
 </div> 
 
-<div class="header-container" *jhiHasAnyAuthority="'ROLE_ADMIN'"> 
+<div class="header-container"  *<%= jhiPrefix %>HasAnyAuthority="'ROLE_ADMIN'"> 
 <nb-select [formControl]="adminSelectControl" status="primary"  (selectedChange)="goToAdminPages($event)">
   <nb-option value="" hidden> 
-        <nb-icon  icon="alert-circle-outline"></nb-icon>
-      <span jhiTranslate="global.menu.admin.main">Administration</span>
+    <span <%= jhiPrefix %>Translate="global.menu.admin.main">Administration</span>
   </nb-option>
+  <%_ if (applicationTypeGateway && serviceDiscoveryType) { _%>
   <nb-option value="admin/gateway">
-    <span jhiTranslate="global.menu.admin.gateway">Gateway</span>
+    <span <%= jhiPrefix %>Translate="global.menu.admin.gateway">Gateway</span>
   </nb-option>
+  <%_ } _%>
+  <%_ if (communicationSpringWebsocket) { _%>
+    <nb-option value="admin/tracker">
+      <span <%= jhiPrefix %>Translate="global.menu.admin.tracker">User tracker</span>
+    </nb-option>
+  <%_ } _%>
+  <%_ if (withAdminUi) { _%>
   <nb-option value="admin/metrics">
-    <span jhiTranslate="global.menu.admin.metrics">Metrics</span>
+    <span <%= jhiPrefix %>Translate="global.menu.admin.metrics">Metrics</span>
   </nb-option>
   <nb-option value="admin/health">
-    <span jhiTranslate="global.menu.admin.health">Health</span>
+    <span <%= jhiPrefix %>Translate="global.menu.admin.health">Health</span>
   </nb-option>
   <nb-option value="admin/configuration">
-    <span jhiTranslate="global.menu.admin.configuration">Configuration</span>
+    <span <%= jhiPrefix %>Translate="global.menu.admin.configuration">Configuration</span>
   </nb-option>
   <nb-option value="admin/logs">
-    <span jhiTranslate="global.menu.admin.logs">Logs</span>
+    <span <%= jhiPrefix %>Translate="global.menu.admin.logs">Logs</span>
   </nb-option>
+  <%_ } _%>
   <nb-option value="admin/docs">
-    <span jhiTranslate="global.menu.admin.apidocs">API</span>
+    <span <%= jhiPrefix %>Translate="global.menu.admin.apidocs">API</span>
   </nb-option>
-    <!-- jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here -->
-</nb-select>
+  <%_ if (devDatabaseTypeH2Any || devDatabaseTypeCouchbase) { _%>  
+    <nb-option *ngIf="!inProduction" value="<% if (devDatabaseTypeCouchbase) { %>http://localhost:8091/<% } else if (reactive) { %> http://localhost:8092/ <% } else { %>./h2-console/<% } %>">
+      <span <%= jhiPrefix %>Translate="global.menu.admin.database">Database</span>
+    </nb-option>
+  <%_ } _%>
+  </nb-select>
 </div> 
 
+<%_ if (enableTranslation) { _%>
 <div class="header-container" *ngIf="languages && languages.length > 1"> 
   <nb-select [jhiActiveMenu]="language" [formControl]="languageSelectControl" status="primary"  (selectedChange)="changeLanguage($event)">
     <nb-option value="" hidden> 
-          <nb-icon  icon="alert-circle-outline"></nb-icon>
           <span jhiTranslate="global.menu.language">Language</span>
     </nb-option>
     <nb-option  *ngFor="let language of languages" [value]="language"> {{ language | findLanguageFromKey }}</nb-option>
   </nb-select>
   </div> 
+<%_ } _%>
 
 <div class="header-container"> 
   <nb-select [formControl]="accountSelectControl" status="primary"  (selectedChange)="performLoginOrLogout($event)">
     <nb-option value="" hidden> 
-          <nb-icon  icon="alert-circle-outline"></nb-icon>
-        <span jhiTranslate="global.menu.account.main">Account</span>
+      <span <%= jhiPrefix %>Translate="global.menu.account.main">Account</span>
     </nb-option>
     <nb-option *ngIf="account !== null" value="logout">
-      <span jhiTranslate="global.menu.account.logout">Sign out</span>
+      <span <%= jhiPrefix %>Translate="global.menu.account.logout">Sign out</span>
     </nb-option>
     <nb-option *ngIf="!account" value="login">
-      <span jhiTranslate="global.menu.account.login">Sign in</span>
+      <span <%= jhiPrefix %>Translate="global.menu.account.login">Sign in</span>
     </nb-option>
   </nb-select>
   </div> 

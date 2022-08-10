@@ -42,20 +42,30 @@ export default class extends AppGenerator {
       this.log(chalk.red('This can cause problems, you should always create a new directory and run the jhipster command from here.'));
       this.log(chalk.white(`See the troubleshooting section at ${chalk.yellow('https://www.jhipster.tech/installation/')}`));
     }
+
+    this.log(
+      chalk.white(
+          `  For any questions or improvements refer to the stream lead at ${chalk.yellow(
+              'https://github.com/amanganiello90'
+          )}`
+      )
+    );
+    
     this.log(
       chalk.white.bold(' _______________________________________________________________________________________________________________\n')
     );
     this.log(
-      chalk.white('Welcome to generator-jhipster-ngxadmin ') + chalk.yellow(`v${ngxPackagejs.version}`)
+      chalk.white('Welcome to generator-jhipster-ngxadmin ') + chalk.yellow(`v${ngxPackagejs.version}\n`)
     );
     this.log(
-      chalk.green.bold(`  This is the NGX JHipster blueprint that apply ${chalk.yellow('ngx-admin template!')}`)
+      chalk.green.bold(`This is the NGX JHipster blueprint that apply ${chalk.yellow('ngx-admin template!')}\n`)
     );
-    this.log(
-      chalk.green.bold(
-        `  The fixed options applied are:  ${chalk.yellow('monolith or gateway application type with oauth2, and ngx admin client with no test framework')}`
-      )
-    );
+    this.log(chalk.green.bold(' This blueprint uses these following configurations:\n'));
+    this.log(chalk.green.bold(' 1. Monolith or Gateway application type\n'));
+    this.log(chalk.green.bold(' 2. OAuth2 security authentication\n'));
+    this.log(chalk.green.bold(' 3. Ngx admin UI with no client test frameworks\n'));
+    this.log(chalk.green.bold(' N.B. Only jhipster, jhipster import-jdl and jhipster entity commands are been tested.\n'));
+    this.log(chalk.green.bold(' However, you can run the blueprint on a standard jhipster app, because it will regenerate the project adding the ngx template and configuration.\n'));
     this.log(
       chalk.white.bold(' _______________________________________________________________________________________________________________\n')
     );

@@ -27,7 +27,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from './@core/core.module';
 import { ThemeModule } from './@theme/theme.module';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
 import {
   NbChatModule,
   NbDatepickerModule,
@@ -47,7 +46,6 @@ import { registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import locale from '@angular/common/locales/<%= localeId %>';
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { ServiceWorkerModule } from '@angular/service-worker';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 <%_ if (authenticationTypeSession && communicationSpringWebsocket) { _%>
 import { CookieService } from 'ngx-cookie-service';
@@ -78,7 +76,6 @@ import { ErrorComponent } from './layouts/error/error.component';
 
 @NgModule({
   imports: [
-    // aggiunta
     SharedModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
     NgxWebstorageModule.forRoot({ prefix: 'jhi', separator: '-', caseSensitive: true }),

@@ -11,8 +11,8 @@
 This is a [JHipster](https://www.jhipster.tech/) blueprint, that is meant to be used in a JHipster application.
 It adds an angular client with the [ngx-admin v8.0.0 template](https://github.com/akveo/ngx-admin/tree/v8.0.0), inheriting standard prompt but with the following options customization:
 
-- Only Monolith or gateway chooices
-- Only Security oauth2
+- Only monolith or gateway chooices
+- Only security oauth2
 - Without client test frameworks
 - Without client options (angular ngx template is applied in any case)
 - Applied alwayis admin UI
@@ -61,13 +61,23 @@ You can look for updated ngxadmin blueprint specific options by running
 jhipster app --blueprints ngxadmin --help
 ```
 
-And looking for `(blueprint option: ngxadmin)` like
+And looking for `(blueprint option: ngxadmin)` like.
 
-However, you can run the blueprint with its `cli command`:
+However, it also ships with an `jhipster-ngxadmin` CLI that you can use as a shortcut.
 
-```bash
-jhipster-ngxadmin
-```
+✅ General App generation
+
+- `jhipster-ngxadmin`
+
+✅ Entity generation
+
+- `jhipster-ngxadmin entity <entity-name>`
+
+✅ JDL Entity model support generation
+
+- `jhipster-ngxadmin import-jdl <my-file.jdl>`
+
+Besides, you can also run the blueprint on a standard jhipster app, because it will regenerate the project adding the ngx template and configuration.
 
 ## Pre-release
 
@@ -78,9 +88,14 @@ npm install -g jhipster/generator-jhipster-ngxadmin#main
 jhipster --blueprints ngxadmin --skip-jhipster-dependencies
 ```
 
-## To DO:
+# To DO:
 
+- Support more options (no fixed questions on security, admin UI, and so on)
 - Check and manage i18n and entity on header.component
+
+# License
+
+Apache-2.0 © [Angelo Manganiello](https://github.com/amanganiello90)
 
 [npm-image]: https://img.shields.io/npm/v/generator-jhipster-ngxadmin.svg
 [npm-url]: https://npmjs.org/package/generator-jhipster-ngxadmin
