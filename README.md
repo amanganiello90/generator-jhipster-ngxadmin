@@ -23,7 +23,7 @@ As this is a [JHipster](https://www.jhipster.tech/) blueprint, we expect you hav
 
 - [Installing JHipster](https://www.jhipster.tech/installation/)
 
-Please attention that it is tested for `JHipster v7.8.1`
+Please attention that it is tested for `JHipster v7.8.1` running generated app with `maven`
 
 # Installation
 
@@ -78,6 +78,8 @@ However, it also ships with an `jhipster-ngxadmin` CLI that you can use as a sho
 - `jhipster-ngxadmin import-jdl <my-file.jdl>`
 
 Besides, you can also run the blueprint on a standard jhipster app, because it will regenerate the project adding the ngx template and configuration.
+
+To update, run the basic command `jhipster-ngxadmin`.
 
 ## Pre-release
 

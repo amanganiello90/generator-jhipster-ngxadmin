@@ -66,6 +66,7 @@ export default class extends AppGenerator {
     this.log(chalk.green.bold(' 3. Ngx admin UI with no client test frameworks\n'));
     this.log(chalk.green.bold(' N.B. Only jhipster, jhipster import-jdl and jhipster entity commands are been tested.\n'));
     this.log(chalk.green.bold(' However, you can run the blueprint on a standard jhipster app, because it will regenerate the project adding the ngx template and configuration.\n'));
+    this.log(chalk.green.bold(' For this, update your project running jhipster-ngxadmin command.\n'));
     this.log(
       chalk.white.bold(' _______________________________________________________________________________________________________________\n')
     );

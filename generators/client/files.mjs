@@ -7,7 +7,7 @@
         'tsconfig.app.json',
         'tslint.json',
         'angular.json',
-        'README.md.ngx',
+        'README.md.jhi.client.angular.ejs',
         'webpack/webpack.custom.js',
       ],
     },

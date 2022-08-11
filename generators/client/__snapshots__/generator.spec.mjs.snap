@@ -38,9 +38,6 @@ Object {
   "README.md": Object {
     "stateCleared": "modified",
   },
-  "README.md.ngx": Object {
-    "stateCleared": "modified",
-  },
   "angular.json": Object {
     "stateCleared": "modified",
   },
