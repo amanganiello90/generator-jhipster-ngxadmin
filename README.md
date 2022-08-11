@@ -1,6 +1,6 @@
 # generator-jhipster-ngxadmin
 
-> JHipster blueprint, ngxadmin blueprint for JHipster
+> JHipster blueprint for ngx-admin app template
 
 [![NPM version][npm-image]][npm-url]
 [![Generator][github-generator-image]][github-generator-url]
@@ -23,7 +23,7 @@ As this is a [JHipster](https://www.jhipster.tech/) blueprint, we expect you hav
 
 - [Installing JHipster](https://www.jhipster.tech/installation/)
 
-Please attention that it is tested for `Jhipster v7.8.1`
+Please attention that it is tested for `JHipster v7.8.1`
 
 # Installation
 
@@ -91,7 +91,6 @@ jhipster --blueprints ngxadmin --skip-jhipster-dependencies
 # To DO:
 
 - Support more options (no fixed questions on security, admin UI, and so on)
-- Check and manage i18n and entity on header.component
 
 # License
 

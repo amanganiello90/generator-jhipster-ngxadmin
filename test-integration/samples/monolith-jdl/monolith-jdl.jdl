@@ -15,14 +15,14 @@ application {
     authenticationType oauth2,
     prodDatabaseType postgresql,
     buildTool maven,
-    searchEngine elasticsearch,
+    searchEngine false,
     testFrameworks [protractor],
     clientFramework angularX
     enableTranslation true,
     nativeLanguage en,
     languages [en, es]
   }
-  entities Points, BloodPressure, Weight, Preferences
+  entities Points, BloodPressure, Weight, Preferences, Athlete
 }
 
 // JDL definition for application 'TwentyOnePoints' generated with command 'jhipster export-jdl'
