@@ -23,7 +23,7 @@ As this is a [JHipster](https://www.jhipster.tech/) blueprint, we expect you hav
 
 - [Installing JHipster](https://www.jhipster.tech/installation/)
 
-Please attention that it is tested for `JHipster v7.8.1` running generated app with `maven`
+Please attention that it is tested for `JHipster v7.8.1`, running generated app with `maven`
 
 # Installation
 

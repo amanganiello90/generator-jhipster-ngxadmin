@@ -10,7 +10,7 @@ GREEN='\033[0;32m'
 #-------------------------------------------------------------------------------
 
 launchCurl() {
-    sleep 50
+    sleep 60
     retryCount=1
     maxRetry=10
     httpUrl="http://localhost:8081/management/info"
