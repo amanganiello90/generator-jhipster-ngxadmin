@@ -6,7 +6,7 @@
     "blueprints": [
       {
         "name": "generator-jhipster-ngxadmin",
-        "version": "1.0.0-beta.0"
+        "version": "1.0.0"
       }
     ],
     "buildTool": "maven",
@@ -34,7 +34,7 @@
     "otherModules": [
       {
         "name": "generator-jhipster-ngxadmin",
-        "version": "1.0.0-beta.0"
+        "version": "1.0.0"
       }
     ],
     "packageName": "com.mycompany.myapp",
